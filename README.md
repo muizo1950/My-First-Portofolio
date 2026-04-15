@@ -1,2 +1,1 @@
-# My-First-Portofolio
-Trying to hosting website, take 1
+# My First Portofolio
