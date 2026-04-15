@@ -1,0 +1,331 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+
+/* Bagian awal baner */ 
+
+/* Container Utama untuk membatasi lebar agar tidak meluber */
+.container {
+    max-width: 1000px; /* Batas lebar maksimal konten */
+    margin: 0 auto;   /* Membuat konten otomatis di tengah layar */
+    padding: 0 20px;  /* Jarak aman di sisi kiri/kanan pada layar HP */
+    position: relative;
+}
+
+/* Hero Banner dengan pola grid biru */
+.hero-banner {
+    width: 100%;
+    display: block;
+    padding: 40px 0;
+  
+}
+
+
+/* Memperbaiki Banner Biru */
+.hero-banner.estetik {
+    position: relative;
+    overflow: hidden; /* Ini agar awan tidak merusak layout halaman saat keluar */
+    width: 100%;
+    min-height: 450px;
+    padding: 40px 0;
+    background-color: #3133b3; 
+    /* Motif Grid Tetap Ada */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 25px 25px;
+}
+
+/* --- CSS AWAN BERGERAK --- */
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    width: 120px;
+    height: 40px;
+    border-radius: 50px;
+    filter: blur(8px);
+    z-index: 1;
+    /* Animasi utama */
+    animation: moveHorizontal linear infinite;
+}
+
+/* Bentuk gumpalan awan */
+.cloud::after, .cloud::before {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+.cloud::after { width: 70px; height: 70px; top: -30px; left: 20px; }
+.cloud::before { width: 50px; height: 50px; top: -20px; left: 70px; }
+
+/* Variasi posisi, ukuran, dan kecepatan */
+.c-1 { top: 10%; animation-duration: 10s; }
+.c-2 { top: 35%; animation-duration: 10s; animation-delay: -5s; transform: scale(2.7); opacity: 0.6; }
+.c-3 { top: 65%; animation-duration: 20s; animation-delay: -15s; transform: scale(2.8); }
+.c-4 { top: 20%; animation-duration: 20s; animation-delay: -25s; transform: scale(1.5); opacity: 0.5; }
+.c-5 { top: 55%; animation-duration: 15s; animation-delay: -10s; transform: scale(2.9); }
+.c-6 { top: 10%; animation-duration: 25s; animation-delay: -20s; transform: scale(1.6); }
+.c-7 { top: 10%; animation-duration: 15s; animation-delay: -20s; transform: scale(1.3); }
+.c-8 { top: 10%; animation-duration: 25s; animation-delay: -20s; transform: scale(1.0); }
+
+/* KEYFRAMES: Gerak dari luar kiri ke luar kanan */
+@keyframes moveHorizontal {
+    from {
+        left: -100%; /* Mulai dari luar banner sebelah kiri */
+    }
+    to {
+        left: 180%; /* Berakhir di luar banner sebelah kanan */
+    }
+}
+
+/* Styling Umum untuk Sticker/Bintang */
+.sticker {
+    position: absolute;
+    font-size: 1.5rem; /* Ukuran bintang */
+    z-index: 2;
+    animation: floatSticker 4s ease-in-out infinite;
+}
+
+@keyframes floatSticker {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+/* Penempatan 10 Bintang secara Merata */
+/* --- SEBARAN BINTANG MERATA (KIRI) --- */
+
+/* Pojok Kiri Atas & Bawah */
+.star-1  { top: 10%; left: -22%;  animation-delay: 0.1s; font-size: 1.4rem; }
+.star-11 { top: 80%; left: -30%;  animation-delay: 0.5s; font-size: 1.1rem; }
+
+/* Sisi Kiri Tengah */
+.star-12 { top: 45%; left: -18%;  animation-delay: 1.2s; font-size: 1.8rem; }
+.star-4  { top: 65%; left: 10%; animation-delay: 0.8s; font-size: 1.3rem; }
+.star-2  { top: 25%; left: 12%; animation-delay: 2.1s; font-size: 1.0rem; }
+
+/* Transisi ke arah Karakter (Kiri) */
+.star-14 { top: 15%; left: 32%; animation-delay: 1.4s; font-size: 1.5rem; }
+.star-3  { top: 75%; left: 35%; animation-delay: 0.3s; font-size: 1.2rem; }
+.star-15 { top: 55%; left: 32%; animation-delay: 1.9s; font-size: 0.9rem; }
+.star-5  { top: 20%; animation-delay: 2.5s; font-size: 1.4rem; }
+.star-13 { top: 50%; left: 18%; animation-delay: 0.7s; font-size: 1.1rem; }
+
+/* --- SEBARAN BINTANG MERATA (KANAN) --- */
+
+/* Pojok Kanan Atas & Bawah */
+.star-6  { top: 12%; right: 1%;  animation-delay: 0.4s; font-size: 1.3rem; }
+.star-18 { top: 80%; right: 1%;  animation-delay: 1.1s; font-size: 1.6rem; }
+
+/* Sisi Kanan Tengah */
+.star-16 { top: 40%; right: -10%;  animation-delay: 0.9s; font-size: 1.1rem; }
+.star-9  { top: 60%; right: -10%; animation-delay: 1.5s; font-size: 1.9rem; }
+.star-19 { top: 22%; right: 8%; animation-delay: 0.2s; font-size: 1.2rem; }
+
+/* Transisi ke arah Karakter (Kanan) */
+.star-7  { top: 10%; right: -13%; animation-delay: 1.7s; font-size: 1.0rem; }
+.star-20 { top: 50%; right: 11%; animation-delay: 2.3s; font-size: 1.5rem; }
+.star-8  { top: 18%; right: -30%; animation-delay: 0.6s; font-size: 1.3rem; }
+.star-10 { top: 75%; right: -16%; animation-delay: 1.3s; font-size: 1.1rem; }
+.star-17 { top: 88%; right: 25%; animation-delay: 0.5s; font-size: 1.4rem; }
+
+/* 4. Menambahkan "Stiker" Dekoratif (Bintang/Hati) */
+.hero-banner.estetik::before {
+    content: '⭐'; /* Anda bisa ganti dengan icon atau emoji */
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    font-size: 30px;
+    animation: rotateSticker 5s ease-in-out infinite;
+}
+
+.hero-banner.estetik::after {
+    content: '✨';
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    font-size: 25px;
+    animation: rotateSticker 4s ease-in-out infinite reverse;
+}
+
+@keyframes rotateSticker {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(20deg); }
+}
+
+
+
+/* Efek Bintang Banyak & Menyebar */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Membuat titik-titik putih menyebar */
+    background-image: 
+        radial-gradient(1px 1px at 10% 20%, white, transparent),
+        radial-gradient(1px 1px at 25% 60%, white, transparent),
+        radial-gradient(2px 2px at 40% 10%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 55% 80%, white, transparent),
+        radial-gradient(2px 2px at 70% 30%, white, transparent),
+        radial-gradient(1px 1px at 85% 50%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(2px 2px at 95% 15%, white, transparent);
+    background-size: 200px 200px; /* Mengulang pola setiap 200px agar terlihat penuh */
+    opacity: 0.5;
+    z-index: 0;
+}
+
+
+
+/* Shadow untuk Karakter agar menyatu dengan langit */
+.hero-char {
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    z-index: 5;
+    position: relative;
+}
+
+/* Bagian akhir banner */
+
+/* Navigasi Kotak Hijau */
+.nav-bar {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Agar rapi di HP */
+}
+
+.nav-item {
+    background: #a8ff3e;
+    color: black;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2.4px solid black;
+    box-shadow: 5px 5px 0px black;
+    font-size: 1.3rem;
+    border-radius: 20px;
+}
+
+.nav-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000;
+}
+
+/* Karakter di Tengah */
+.character-container {
+    position: relative;
+    z-index: 5; /* Karakter paling depan */
+    margin-top: 20px;
+}
+
+.hero-char {
+    max-width: 400px;
+    filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.2));
+}
+
+/* Typography Section */
+.content {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.main-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 4rem;
+    text-transform: lowercase;
+    margin-bottom: 5px;
+    letter-spacing: -2px;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.warning {
+    color: #ff4d4d; /* Merah untuk peringatan */
+    font-size: 0.8rem;
+}
+
+/* Social Icons (Placeholder) */
+.social-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Jarak antar lingkaran */
+}
+
+.icon {
+   width: 45px;  /* Sesuaikan ukuran lingkaran */
+    height: 45px;
+    border: 2px solid #3133b3; /* Warna biru sesuai gambar */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #3133b3;
+    font-size: 20px; /* Ukuran ikon di dalam lingkaran */
+    transition: all 0.3s ease;
+}
+
+/* Efek Hover (Saat kursor diarahkan) */
+.icon:hover {
+    background-color: #3133b3;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+   
+.divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 40px 0;
+}
+
+/* Gallery */
+.gallery-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2.5rem;
+    line-height: 0.9;
+    margin-bottom: 10px;
+}
+
+.loading-text {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .main-title { font-size: 2.5rem; }
+    .gallery-title { font-size: 1.8rem; }
+}
